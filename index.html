@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieHub | Online Food Ordering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">Foodie<span>Hub.</span></h2>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">Fresh Food, Happy Mood!</p>
+            <h1>Delicious Food<br>Delivered To You</h1>
+            <p>Order your favourite meals and enjoy every bite.</p>
+            <a href="#menu" class="hero-btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2>Our Delicious Menu</h2>
+        <p class="subtitle">Choose your favourite food</p>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search your favourite food..."
+        >
+
+        <div class="categories">
+            <button class="category active" data-category="All">All</button>
+            <button class="category" data-category="Pizza">Pizza</button>
+            <button class="category" data-category="Burger">Burger</button>
+            <button class="category" data-category="Biryani">Biryani</button>
+            <button class="category" data-category="Dessert">Dessert</button>
+        </div>
+
+        <div class="food-container" id="food-container">
+            <!-- Food cards generated using JavaScript -->
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>Why Choose FoodieHub?</h2>
+        <p>Fresh ingredients, delicious meals and a simple ordering experience.</p>
+        <div class="features">
+            <div>🍕<h3>Fresh Food</h3><p>Quality ingredients</p></div>
+            <div>🚀<h3>Fast Service</h3><p>Quick ordering</p></div>
+            <div>❤️<h3>Made With Love</h3><p>Food you'll enjoy</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FoodieHub. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <aside class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h2>Your Cart 🛒</h2>
+            <button onclick="toggleCart()">✕</button>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-footer">
+            <p>Subtotal: <span id="subtotal">₹0</span></p>
+            <p>Delivery: <span id="delivery">₹0</span></p>
+            <h3>Total: <span id="total">₹0</span></h3>
+            <button class="checkout-btn" onclick="checkout()">
+                Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeCheckout()">✕</button>
+            <h2>Complete Your Order</h2>
+
+            <form id="checkout-form">
+                <input type="text" id="customer-name"
+                    placeholder="Your Name" required>
+                <input type="tel" id="customer-phone"
+                    placeholder="Phone Number" pattern="[0-9]{10}" required>
+                <textarea id="customer-address"
+                    placeholder="Delivery Address" required></textarea>
+                <button type="submit" class="checkout-btn">
+                    Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
